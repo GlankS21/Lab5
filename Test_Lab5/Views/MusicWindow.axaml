@@ -1,0 +1,19 @@
+<Window xmlns="https://github.com/avaloniaui"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:viewModels="clr-namespace:Test_Lab5.ViewModels"
+        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+        x:Class="Test_Lab5.Views.MusicWindow"
+        x:DataType="viewModels:MusicViewModel"
+        Icon="/Assets/icon.png"
+        Title="Information about the music">
+ 
+        <StackPanel>
+            <TextBlock Text="{Binding Title}"/>
+            <TextBlock Text="{Binding Author}" />
+            <TextBlock Text="{Binding Composition}" />
+            <TextBlock Text="{Binding Id}" />
+        </StackPanel>
+          
+</Window>
