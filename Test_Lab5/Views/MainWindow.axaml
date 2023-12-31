@@ -21,7 +21,7 @@
             </Grid.Background>
             <Grid.ColumnDefinitions>
                 <ColumnDefinition Width="Auto" />
-                <ColumnDefinition Width="2*" /> <!-- Thêm một cột mới -->
+                <ColumnDefinition Width="2*" /> 
                 <ColumnDefinition Width="2*" />
             </Grid.ColumnDefinitions>
 

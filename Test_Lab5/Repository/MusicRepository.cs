@@ -1,6 +1,7 @@
 ﻿    using System.Collections.Generic;
     using System.Linq;
     using System.Threading.Tasks;
+    using Microsoft.EntityFrameworkCore;
     using Test_Lab5.DB;
     using Test_Lab5.Models;
 
@@ -12,9 +13,9 @@
             _dbContext = dbContext;
         }
         
-        public List<MusicModel> GetAll() { 
+        public async Task<List<MusicModel>> GetAll() { 
             if (_dbContext.Musics == null) return new List<MusicModel>();
-            return _dbContext.Musics.ToList();
+            return await _dbContext.Musics.ToListAsync();
         }
          
         // list
@@ -24,8 +25,9 @@
         }
         
         //searchByAuthor
-        public List<MusicModel> FindByPartOfName(string PartOfName) {
-            return new List<MusicModel>(GetAll().Where(m => m.composition.Contains(PartOfName)));
+        public async Task<List<MusicModel>> FindByPartOfName(string PartOfName) {
+            var musics = await GetAll();
+            return new List<MusicModel>(musics.Where(m => m.composition.Contains(PartOfName)));
         }
         //delete
         public Task DeleteMusic(string authorName, string compositionName) {

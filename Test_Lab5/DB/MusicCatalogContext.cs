@@ -5,9 +5,7 @@
      
     public class MusicCatalogContext:DbContext {
         public DbSet<MusicModel> Musics { get; set; }
-        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {
-            optionsBuilder.UseSqlite("Data Source = Lab5.db");
-        }
+        protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) => optionsBuilder.UseSqlite("Data Source = Lab5.db");
 
         public MusicCatalogContext() {
             Database.EnsureCreated();

@@ -4,7 +4,6 @@
     using System.Linq;
     using System.Threading.Tasks;
     using DynamicData;
-    using Microsoft.EntityFrameworkCore;
     using ReactiveUI;
     using Test_Lab5.DB;
     using Test_Lab5.Models;
@@ -41,26 +40,21 @@
         }
         public MusicModel Music{
             get => _music;
-            set {
-                this.RaiseAndSetIfChanged(ref _music, value);
-                if (value != null) {
-                    var dialog = new MusicWindow();
-                    dialog.DataContext = new MusicViewModel() {
-                        Author = value.author,
-                        Composition = value.composition,
-                        Id = value.Id
-                    };
-                    dialog.Show();
-                }
-            }
+            set => this.RaiseAndSetIfChanged(ref _music, value);
         }
 
         public MainWindowViewModel() {
             _dbContext = new MusicCatalogContext();
             _musicRepository = new MusicRepository(_dbContext);
-            MusicList.AddRange(_musicRepository.GetAll());
+            LoadData();
         }
-        public void AddMusicToDatabase() {
+
+        private async Task LoadData() {
+            var musicFromDatabase = await _musicRepository.GetAll();
+            foreach (var music in musicFromDatabase)
+                MusicList.Add(music);
+        }
+        public async Task AddMusicToDatabase() {
             try {
                 if (_authorName == null || _compositionName == null) {
                     Message = "Please enter the author's name and the composition's name !";
@@ -90,12 +84,10 @@
         public async Task LoadMusicFromDatabase() {
             try {
                 MusicList.Clear();
-                var musicList = _musicRepository.GetAll();
+                IEnumerable<MusicModel> musicList = await _musicRepository.GetAll();
                 foreach (var music in musicList)
                     MusicList.Add(music);
-
-                var dialog = new DialogViewModel(musicList);
-                dialog.GetAllMusics();
+                
                 Message = "Music loaded successfully !";
             }
             catch (Exception e) {
@@ -112,7 +104,8 @@
                 MusicList.Remove(_music);
                 Message = "Music deleted successfully !";
             }
-            catch (Exception e) {
+            catch (Exception e)
+            {
                 Message = "Error...";
             }
         }
@@ -123,8 +116,6 @@
                     return;
                 }
                 List<MusicModel> musics = MusicList.Where(m => m.composition.Contains(_partOfName)).ToList();
-                var dialog = new DialogViewModel(musics);
-                dialog.GetAllMusics();
                 Message = $"{musics.Count} results found";
             }catch (Exception e) {
                 Message = "Error...";
