@@ -6,7 +6,7 @@ using Test_Lab5.ViewModels;
 namespace Test_Lab5;
 
 public class ViewLocator : IDataTemplate
-{
+{ 
     public Control? Build(object? data)
     {
         if (data is null)

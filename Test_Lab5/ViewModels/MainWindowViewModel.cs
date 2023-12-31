@@ -116,7 +116,7 @@ public class MainWindowViewModel : ViewModelBase
             Message = "Error...";
         }
     }
-    public async Task FindByPartOfName() {
+    public async Task FindByPartOfName() { 
         try {
             if (_partOfName == null) {
                 Message = "Please enter the part of name !";

@@ -18,7 +18,7 @@ public class MusicRepository :IMusicRepository{
     }
      
     // list
-    public Task AddMusic(MusicModel music) { 
+    public Task AddMusic(MusicModel music) {  
         _dbContext.Musics.Add(music); 
         return _dbContext.SaveChangesAsync(); 
     }

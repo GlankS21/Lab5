@@ -16,7 +16,7 @@ public class MusicViewModel:ViewModelBase
     }
 
     public string Composition {
-        get => _compositionName;
+        get => _compositionName; 
         set => this.RaiseAndSetIfChanged(ref _compositionName, value);
     }
     

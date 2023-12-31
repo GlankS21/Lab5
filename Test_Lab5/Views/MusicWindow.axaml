@@ -7,7 +7,7 @@
         x:Class="Test_Lab5.Views.MusicWindow"
         x:DataType="viewModels:MusicViewModel"
         Icon="/Assets/icon.png"
-        Title="Information about the music">
+        Title="Information about the music"> 
  
         <StackPanel>
             <TextBlock Text="{Binding Title}"/>

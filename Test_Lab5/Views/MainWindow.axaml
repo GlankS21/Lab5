@@ -10,7 +10,7 @@
         Icon="/Assets/icon.png"
         Title="Music Catalog">
 
-    <Design.DataContext>
+    <Design.DataContext> 
         <vm:MainWindowViewModel/>
     </Design.DataContext>
     

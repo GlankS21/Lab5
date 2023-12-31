@@ -2,7 +2,7 @@
 using Test_Lab5.Models;
 
 namespace Test_Lab5.DB;
-
+ 
 public class MusicCatalogContext:DbContext {
     public DbSet<MusicModel> Musics { get; set; }
     protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder) {

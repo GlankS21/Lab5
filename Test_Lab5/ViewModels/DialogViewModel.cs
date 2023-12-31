@@ -11,7 +11,7 @@ public class DialogViewModel:ViewModelBase {
     private List<MusicModel> _musics;
     //private DialogWindow _dialogWindow;
 
-    public DialogViewModel(List<MusicModel> musics) {
+    public DialogViewModel(List<MusicModel> musics) { 
         _musics = musics;
     }
 

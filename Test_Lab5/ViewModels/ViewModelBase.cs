@@ -8,4 +8,4 @@ using Test_Lab5.Models;
 namespace Test_Lab5.ViewModels;
 
 public class ViewModelBase : ReactiveObject {
-}
+} 

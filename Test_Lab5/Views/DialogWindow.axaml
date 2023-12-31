@@ -11,7 +11,7 @@
  
         
     <ListBox ItemsSource="{Binding MusicModels}">
-        <ListBox.ItemTemplate>
+        <ListBox.ItemTemplate> 
             <DataTemplate>
                 <StackPanel>
                     <TextBlock Text="{Binding author}" />
