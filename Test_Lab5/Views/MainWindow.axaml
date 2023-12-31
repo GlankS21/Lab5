@@ -1,78 +1,78 @@
-<Window xmlns="https://github.com/avaloniaui"
-        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
-        xmlns:vm="using:Test_Lab5.ViewModels"
-        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
-        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
-        xmlns:models="clr-namespace:Test_Lab5.Models"
-        mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
-        x:Class="Test_Lab5.Views.MainWindow"
-        x:DataType="vm:MainWindowViewModel"
-        Icon="/Assets/icon.png"
-        Title="Music Catalog">
+    <Window xmlns="https://github.com/avaloniaui"
+            xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+            xmlns:vm="using:Test_Lab5.ViewModels"
+            xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+            xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+            xmlns:models="clr-namespace:Test_Lab5.Models"
+            mc:Ignorable="d" d:DesignWidth="800" d:DesignHeight="450"
+            x:Class="Test_Lab5.Views.MainWindow"
+            x:DataType="vm:MainWindowViewModel"
+            Icon="/Assets/icon.png"
+            Title="Music Catalog">
 
-    <Design.DataContext>
-        <vm:MainWindowViewModel/>
-    </Design.DataContext>
-    
-    
-    <Grid>
-        <Grid.Background>
-            <ImageBrush Source="/Assets/background.jpeg"/>
-        </Grid.Background>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="Auto" />
-            <ColumnDefinition Width="2*" /> <!-- Thêm một cột mới -->
-            <ColumnDefinition Width="2*" />
-        </Grid.ColumnDefinitions>
+        <Design.DataContext> 
+            <vm:MainWindowViewModel/>
+        </Design.DataContext>
+        
+        
+        <Grid>
+            <Grid.Background>
+                <ImageBrush Source="/Assets/background.jpeg"/>
+            </Grid.Background>
+            <Grid.ColumnDefinitions>
+                <ColumnDefinition Width="Auto" />
+                <ColumnDefinition Width="2*" /> 
+                <ColumnDefinition Width="2*" />
+            </Grid.ColumnDefinitions>
 
-        <!-- function -->
-        <ListBox Grid.Column="0">
-            <Button Width="150" Command="{Binding AddMusicToDatabase}">Add new music</Button>
-            <Button Width="150" Command="{Binding LoadMusicFromDatabase}">Load Music</Button>
-            <Button Width="150" Command="{Binding DeleteMusic}">Delete Music</Button>
-            <Button Width="150" Command="{Binding FindByPartOfName}">Find Music</Button>
-        </ListBox>
-
-        <!-- main -->
-        <Grid Grid.Column="1">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-                <RowDefinition Height="Auto" />
-            </Grid.RowDefinitions>
-            <TextBlock Text="{Binding Message}" Grid.Row="0" Margin="10,15,0,10" Foreground="White" FontWeight="Bold"/>
-
-            <TextBlock Grid.Row="1" Text="Author's name" Margin="10,0,0,5" Foreground="White" FontWeight="Bold"/>
-            <TextBox Grid.Row="2" Height="100" Text="{Binding GetAuthorName}" />
-    
-            <TextBlock Grid.Row="3" Text="Composition's Name" Margin="10,10,0,5" Foreground="White" FontWeight="Bold"/>
-            <TextBox Grid.Row="4" Height="100" Text="{Binding GetCompositionName}" />
-            
-            <TextBlock Grid.Row="5" Text="Write part of name music" Margin="10,10,0,5" Foreground="White" FontWeight="Bold"/>
-            <TextBox Grid.Row="6" Height="100" Text="{Binding GetPartOfName}" />
-        </Grid>
-
-        <!-- result -->
-        <Grid Grid.Column="2">
-            <Grid.RowDefinitions>
-                <RowDefinition Height="*" />
-            </Grid.RowDefinitions>
-            <ListBox ItemsSource="{Binding MusicList}" SelectedItem="{Binding Music}">
-                <ListBox.ItemTemplate>
-                    <DataTemplate x:DataType="models:MusicModel">
-                        <StackPanel>
-                            <TextBlock Text="{Binding author}" />
-                            <TextBlock Text="{Binding composition}" />
-                            <TextBlock Text="{Binding Id}" />
-                        </StackPanel>
-                    </DataTemplate>
-                </ListBox.ItemTemplate>
+            <!-- function -->
+            <ListBox Grid.Column="0">
+                <Button Width="150" Command="{Binding AddMusicToDatabase}">Add new music</Button>
+                <Button Width="150" Command="{Binding LoadMusicFromDatabase}">Load Music</Button>
+                <Button Width="150" Command="{Binding DeleteMusic}">Delete Music</Button>
+                <Button Width="150" Command="{Binding FindByPartOfName}">Find Music</Button>
             </ListBox>
+
+            <!-- main -->
+            <Grid Grid.Column="1">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                    <RowDefinition Height="Auto" />
+                </Grid.RowDefinitions>
+                <TextBlock Text="{Binding Message}" Grid.Row="0" Margin="10,15,0,10" Foreground="White" FontWeight="Bold"/>
+
+                <TextBlock Grid.Row="1" Text="Author's name" Margin="10,0,0,5" Foreground="White" FontWeight="Bold"/>
+                <TextBox Grid.Row="2" Height="100" Text="{Binding GetAuthorName}" />
+        
+                <TextBlock Grid.Row="3" Text="Composition's Name" Margin="10,10,0,5" Foreground="White" FontWeight="Bold"/>
+                <TextBox Grid.Row="4" Height="100" Text="{Binding GetCompositionName}" />
+                
+                <TextBlock Grid.Row="5" Text="Write part of name music" Margin="10,10,0,5" Foreground="White" FontWeight="Bold"/>
+                <TextBox Grid.Row="6" Height="100" Text="{Binding GetPartOfName}" />
+            </Grid>
+
+            <!-- result -->
+            <Grid Grid.Column="2">
+                <Grid.RowDefinitions>
+                    <RowDefinition Height="*" />
+                </Grid.RowDefinitions>
+                <ListBox ItemsSource="{Binding MusicList}" SelectedItem="{Binding Music}">
+                    <ListBox.ItemTemplate>
+                        <DataTemplate x:DataType="models:MusicModel">
+                            <StackPanel>
+                                <TextBlock Text="{Binding author}" />
+                                <TextBlock Text="{Binding composition}" />
+                                <TextBlock Text="{Binding Id}" />
+                            </StackPanel>
+                        </DataTemplate>
+                    </ListBox.ItemTemplate>
+                </ListBox>
+            </Grid>
         </Grid>
-    </Grid>
-    
-</Window>
+        
+    </Window>

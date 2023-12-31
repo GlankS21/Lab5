@@ -1,8 +1,8 @@
-﻿namespace Test_Lab5.Models;
+﻿    namespace Test_Lab5.Models;
 
-public enum EMusicFunctions {
-    list,
-    search,
-    add,
-    del,
-} 
+    public enum EMusicFunctions {
+        list, 
+        search,
+        add,
+        del,
+    } 
