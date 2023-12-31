@@ -1,17 +1,17 @@
-using Avalonia.Controls;
-using Avalonia.Interactivity;
+    using Avalonia.Controls;
+    using Avalonia.Interactivity;
 
-namespace Test_Lab5.Views;
+    namespace Test_Lab5.Views;
 
-public partial class MainWindow : Window
-{
-    public MainWindow()
+    public partial class MainWindow : Window
     {
-        InitializeComponent(); 
-    }
+        public MainWindow()
+        {
+            InitializeComponent(); 
+        }
 
-    private void Button_OnClick(object? sender, RoutedEventArgs e)
-    {
-        throw new System.NotImplementedException();
+        private void Button_OnClick(object? sender, RoutedEventArgs e)
+        {
+            throw new System.NotImplementedException();
+        }
     }
-}
